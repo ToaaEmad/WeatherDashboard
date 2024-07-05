@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> Weather Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css\style.css">
+  <script src = "js\app.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="city_details">
+    <h1 class="weather_degree">18°C</h1>
+    <div class="loction">
+      <i class="fa-solid fa-location-dot"></i>
+      <h3>Cairo</h3>
+      <h3>,</h3>
+      <h3>Egypt</h3>
+    </div>
+    <h3 class="day">Wednesday</h3>
+  </div>
+  <div class="weather_status">
+    <i class="fa-solid fa-cloud" id="weather_icon"></i>
+    <h1>Cloudy</h1>
+  </div>
+  <div class="weather_details">
+    <div class="search_box">
+      <input id = "location_input" type="text" placeholder="Enter Your Location">
+      <button onclick=changeView() class="fa-solid fa-magnifying-glass"></button>
+    </div>
+    <div class="details_box">
+      <div class="icons">
+        <i class="fa-solid fa-water"></i>
+        <h4>Humidity</h4>
+      </div>
+      <p>50%</p>
+    </div>
+    <div class="details_box">
+      <div class="icons">
+        <i class="fa-solid fa-wind"></i>
+        <h4>Wind</h4>
+      </div>
+      <p>0 Km/Hr</p>
+    </div>
+    <div class="details_box">
+      <div  class="icons">
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-arrow-up"></i>
+        <h4>Sunrise</h4>
+      </div>
+      <p>6:02 am</p>
+    </div>
+    <div class="details_box">
+      <div  class="icons">
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-arrow-down"></i>
+        <h4>Sunset</h4>
+      </div>
+      <p>6:57 pm</p>
+    </div>
+  </div>
+</div>
+<div class="weather_chart">
+
+</div>
+<div class="weekly_weather">
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-sun"></i>
+      <h3>Thursday</h3>
+      <h4>Sunny</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">38°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">19°C</h4>
+    </div>
+
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-sun"></i>
+      <h3>Friday</h3>
+      <h4>Sunny</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">32°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">19°C</h4>
+    </div>
+
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-cloud-rain"></i>
+      <h3>Saturday</h3>
+      <h4>Rainy</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">18°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">9°C</h4>
+    </div>
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-snowflake"></i>
+      <h3>Sunday</h3>
+      <h4>Snowy</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">-1°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">-5°C</h4>
+    </div>
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-cloud-sun"></i>
+      <h3>Monday</h3>
+      <h4>Partly Cloudy</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">28°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">10°C</h4>
+    </div>
+
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-cloud-rain"></i>
+      <h3>Tuesday</h3>
+      <h4>Rainy</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">30°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">21°C</h4>
+    </div>
+
+  </div>
+  <div class="daily_weather">
+    <div class="day_box">
+      <i class="fa-solid fa-sun"></i>
+      <h3>Wednesday</h3>
+      <h4>Sunny</h4>
+    </div>
+    <div class="up_low_weather">
+      <i class="fa-solid fa-arrow-up"></i>
+      <h4 class="highest_weather">38°C</h4>
+      <i class="fa-solid fa-arrow-down"></i>
+      <h4 class="lowest_weather">17°C</h4>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
+
+<!-- <div class="search_box">
+    <input type="text" placeholder="Enter Your Location">
+    <button class="fa-solid fa-magnifying-glass"></button>
+</div>
+<div class="container">
+    <div class="second_box">
+        <div>
+            <i class="fa-solid fa-cloud" id="weather_icon"></i>
+        </div>
+
+        <div class="weather_details"> <h1>25°</h1>
+            <div class="">
+
+                <p>Egypt, Cairo</p><p>Wednesday</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="third_box">
+        <div class="details_box">
+            <div class="text">
+                <i class="fa-solid fa-wind"></i>
+                <div >
+                    <p>wind</p>
+                    <p>0 KM/hr</p>
+                </div>
+
+            </div>
+            <div class="text">
+                <i class="fa-solid fa-water"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p>39%</p>
+                </div>
+            </div>
+            <div class="text" id="sunrise">
+                <i class="fa-regular fa-sun"></i>
+                <i class="fa-solid fa-arrow-up"></i>
+                <div>
+                     <p>Sunrise</p>
+                     <p>6:02 am</p>
+                </div>
+
+            </div>
+            <div class="text" id="sunset">
+                <i class="fa-regular fa-sun"></i>
+                <i class="fa-solid fa-arrow-down"></i>
+                <div>
+                    <p>Sunset</p>
+                    <p>6:52 pm</p>
+                </div>
+            </div>
+         </div>
+         <div class="chart">
+            <p>chart</p>
+         </div>
+    </div>
+
+
+</div> -->
