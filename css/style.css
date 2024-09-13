@@ -1,28 +1,42 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body{
-    background-image: linear-gradient(to right, rgb(66, 70, 83), rgb(91, 94, 105),rgb(119, 121, 131));
+    background-image: url(../img/sunny3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 555px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 .search_box{
     display: flex;
     justify-content: center;
-    width: 300px;
-    height: 30px;
-    margin-bottom: 15px;
-    color: rgb(46, 47, 49);
+    width: 350px;
+    height: 40px;
+    margin: 7px 0px 15px;
+    color: black;
     background-color: rgb(226, 227, 227);
     border-radius: 5px;
+    position: absolute;
+    top: 45%;
+    right: 35%;
 }
 .search_box button{
     border: none;
     cursor: pointer;
-    color: rgb(46, 47, 49);
+    color: black;
+    margin-right: 5px;
+    font-size: 16px;
+    /*rgb(46, 47, 49)*/
     background-color: transparent;
 }
 input{
     text-transform: uppercase;
     background-color:transparent;
-    color: rgb(46, 47, 49);
+    padding: 5px;
+    font-size: 15px;
+    color: black;
     width: 10cm;
     border: none;
     outline: none;
@@ -31,43 +45,50 @@ input::placeholder{
     text-transform: none;
     font-size: 15px;
 }
+.all{
+    display: none;
+}
 .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 10px 30px 10px ;
+    margin: 80px 30px 30px 40px ;
 }
+
 .city_details{
     display: grid;
     align-content: center;
-    font-size: 20px;
-    color: white;
+    font-size: 22px;
+    color: white ;
 }
 .weather_degree,
 .day{
     display: flex;
     justify-content: center;
 }
-.loction{
+.location{
     display: flex;
     align-items: center;
     gap: 5px;
-    color: rgb(162, 189, 206);
+    margin-top: 15px;
+}
+
+.weather_degree:hover{
+    font-size: 50px;
 }
 .city_details h3{
     margin: 0px;
     padding: 2px;
-    color: rgb(162, 189, 206);
 }
 .weather_status{
     display: grid;
     justify-items: center;
     align-items: center;
     color:white;
-    font-size: 170px;
+    font-size: 110px;
 }
 .weather_status h1{
-    font-size: 30px;
+    font-size: 33px;
     margin: 10px;
 }
 .weather_details{
@@ -80,15 +101,15 @@ input::placeholder{
     width: 250px;
     height: 40px;
     gap: 35px;
-    color: rgb(66, 70, 83);
     background-color: rgb(226, 227, 227);
-    border: solid 2px  rgb(162, 189, 206);
+    /*border: solid 2px  rgb(117, 119, 122);*/
     border-radius: 7px;
 }
 .details_box p{
     display: flex;
     align-items: center;
     font-size: 17px;
+    color: black;
 }
 .icons{
     display: flex;
@@ -97,54 +118,148 @@ input::placeholder{
     gap: 5px;
     width: 100px;
     color: white;
-    background-color: rgb(162, 189, 206);
-    border-radius:0px 7px 7px 0px;
+    background-color: rgb(23,141,232);
+    border-radius:5px 7px 7px 5px;
 }
 .weather_chart{
-    margin: 10px;
-    height: 200px;
-    background-color: rgb(226, 227, 227);
-    border-radius: 7px;
-    border: solid 2px rgb(162, 189, 206);
+    margin:40px auto 10px auto;
+    width: 96%;
+    height: 290px;
+    background-color:transparent;
+    line-height: 25px ;
 }
-.weekly_weather{
-    margin: 30px 10px;
+.subtitles{
+    padding: 0px;
+    color: rgb(23,141,232,0.7);
+    border-bottom:2px solid rgba(23, 141, 232, 0.7);
+}
+.subtitles p{
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.selectedSubTitle{
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 8px
+}
+
+.overDay{
+    padding: 15px 0px 15px 0px;
     display: flex;
+    font-weight: bold;
     justify-content: space-between;
 }
-.daily_weather{
-    display: grid;
-    justify-items: center;
-    gap: 1px;
-    border:solid 2px rgb(162, 189, 206);
-    border-radius: 7px;
-    width: 12%;
-    height: 250px;
-    background-color: rgb(206, 205, 205);
-}
-.up_low_weather{
+.overWeek{
+    padding: 15px 0px 15px 0px;
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    color: rgb(46, 47, 49);
+    font-size: 40px;
+    font-weight: bold;
+    justify-content: space-around;
 }
-.day_box{
-    background-color: rgb(162, 189, 206);
-    border-radius: 0px 0px 7px 7px;
-    width: 100%;
+.hourly,
+.daily{
+    width: 150px;
+    height: 190px;
     display: grid;
-    justify-content: center;
+    gap: 10px;
+    padding: 0px;
     text-align: center;
-    padding-top: 10px;
-    font-size: 18px;
+    align-items: center;
+    font-size: 20px;
     color: white;
 }
-.day_box i{
-    font-size: 25px;
+.hourly:hover,
+.daily:hover{
+    width: 170px;
+    height: 200px;
+    font-size: 28px;
 }
-.day_box h3,
-.day_box h4{
-    margin: 0px;
-    padding: 0px;
+.hourly i,
+.dailyIcon{
+    font-size: 40px;
+}
+.eachDay{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7px;
+}
+.up_down{
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 600px){
+    body{
+        height: max-content;
+    }
+    .search_box{
+        width: 230px;
+        height: 30px;
+    }
+    .container{
+        display: grid;
+        row-gap: 40px;
+        justify-content: center;
+    }
+    .location{
+
+        justify-content: center;
+    }
+    .weather_details{
+        width: auto;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: 210px 210px;
+        grid-column: 1/3;
+    }
+    .details_box{
+        display: flex;
+        width: 100%;
+        height: 40px;
+        font-size: 17px;
+        gap: 15px;
+
+    }
+    .details_box p{
+        margin-left: 5px;
+        align-items: center;
+    }
+    .icons{
+        width: 50%;
+    }
+
+    .hourly{
+        height: 150px;
+        font-size: 12px;
+    }
+    .hourly i{
+        font-size: 30px;
+    }
+    .hourly:hover{
+        width: 70px;
+        height: 150px;
+    }
+    .daily{
+        width: 80px;
+        margin: 10px 3px;
+        height: 150px;
+        font-size: 12px;
+        justify-content: center;
+    }
+    .eachDay{
+        display: flex;
+        font-size: 9px;
+    }
+    .daily:hover {
+        height: 150px;
+        width: 110px;
+        font-size: 20px;
+    }
+    .up_down{
+        font-size: 15px;
+    }
 }
